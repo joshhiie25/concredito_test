@@ -1,0 +1,69 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/template.xhtml">
+
+	<ui:define name="title">Consultar Calificaciones</ui:define>
+
+	<ui:define name="content">
+		<h:form id="form">
+			<div class="p-grid">
+				<div class="p-col-12 p-md-12 p-lg-12">
+					<div class="card" >
+						<h5 style="text-align: center">
+							<b>Consultar Calificaciones</b>
+						</h5>
+						<div class="ui-fluid p-formgrid p-grid">
+							<div class="p-field p-col-12 p-md-12 p-lg-6">
+								<h:outputLabel value="Curso"/>
+								<p:selectOneMenu  id="cursos" 
+												  converter="cursoConverter"
+									              value="#{calificacionesBean.cursoEntity}">
+												  
+									<f:selectItems value="#{calificacionesBean.listaCursos}"
+												   var="curso"
+												   itemLabel="#{curso.descripcion}"
+												   itemValue="#{curso}" />
+												   
+									<p:ajax event="itemSelect"
+										listener="#{calificacionesBean.obtenerCalificaciones}"
+										update="tabla_calificaciones" />
+										
+								</p:selectOneMenu>
+							</div>
+							
+							<div class="p-field p-col-12 p-md-12 p-lg-12">
+								<p:dataTable id="tabla_calificaciones" 
+											 var="calificacion" 
+											 value="#{calificacionesBean.listaCalificaciones}">
+											 
+						            <p:column headerText="Alumno"> 
+						                <h:outputText value="#{calificacion.idestudiante.obtenerNombreCompleto()}" />
+						            </p:column>
+						
+						            <p:column headerText="Parcial 1">
+						                <h:outputText value="#{calificacion.calificacion_parcial1}" />
+						            </p:column>
+						
+						            <p:column headerText="Parcial 2">
+						                <h:outputText value="#{calificacion.calificacion_parcial2}" />
+						            </p:column>
+						
+						            <p:column headerText="Parcial 3">
+						                <h:outputText value="#{calificacion.calificacion_parcial3}" />
+						            </p:column>
+						            
+						             <p:column headerText="Promedio">
+						                <h:outputText value="#{calificacion.promedio}" />
+						            </p:column>
+						        </p:dataTable>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>

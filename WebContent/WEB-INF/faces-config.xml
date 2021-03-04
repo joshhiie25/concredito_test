@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd"
+	version="2.3">
+
+	<name>primefaces_poseidon</name>
+
+	<navigation-rule>
+		<from-view-id>/*</from-view-id>
+		<navigation-case>
+			<from-outcome>inicio</from-outcome>
+			<to-view-id>/pages/inicio.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
+		<navigation-case>
+			<from-outcome>rockola</from-outcome>
+			<to-view-id>/pages/rockola.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
+		<navigation-case>
+			<from-outcome>gato</from-outcome>
+			<to-view-id>/pages/gato.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
+		<navigation-case>
+			<from-outcome>anagrama</from-outcome>
+			<to-view-id>/pages/anagrama.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
+		<navigation-case>
+			<from-outcome>calificaciones</from-outcome>
+			<to-view-id>/pages/calificaciones.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
+		<navigation-case>
+			<from-outcome>instrucciones</from-outcome>
+			<to-view-id>/pages/instrucciones.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
+	<component>
+		<component-type>org.primefaces.component.PoseidonMenu</component-type>
+		<component-class>org.primefaces.poseidon.component.PoseidonMenu</component-class>
+	</component>
+
+	<render-kit>
+		<renderer>
+			<component-family>org.primefaces.component</component-family>
+			<renderer-type>org.primefaces.component.PoseidonMenuRenderer</renderer-type>
+			<renderer-class>org.primefaces.poseidon.component.PoseidonMenuRenderer</renderer-class>
+		</renderer>
+	</render-kit>
+</faces-config>

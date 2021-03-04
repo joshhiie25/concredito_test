@@ -1,0 +1,65 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/template.xhtml">
+
+	<ui:define name="title">Inicio</ui:define>
+
+	<ui:define name="content">
+		<h:form id="form">
+			<div class="p-grid table-demo">
+				<div class="p-col-12">
+					<div class="card">
+						<div class="ui-fluid p-formgrid p-grid">
+							<div class="p-field p-col-12 p-md-12 p-lg-6"
+								style="text-align: justify;">
+								<h4>
+									<b>Resuelve los siguientes ejercicios en cualquier lenguaje
+										de programación orientado a objetos y gestor de base de datos.
+										Al finalizar, subir a un repositorio en gitlab o github el
+										proyecto con todos los productos generados (programas,
+										diagramas y scripts). Favor de enviar el enlace al
+										repositorio.</b>
+								</h4>
+								<br />
+
+							</div>
+
+							<div class="p-field p-col-12 p-md-12 p-lg-12">
+								<blockquote>1. Escribe un método para determinar si
+									dos cadenas son o no anagramas.</blockquote>
+								<blockquote>2. Diseña una rockola utilizando
+									principios de programación orientada a objetos.</blockquote>
+								<blockquote>3. Escribe un programa para saber si
+									alguien ganó en un juego de tic-tac-toe (gato). Utiliza los
+									principios de programación orientada a objetos.</blockquote>
+								<blockquote>4. Imagina una simple base de datos
+									donde se almacena información de las calificaciones de un grupo
+									de alumnos. Diseña cómo pudiera lucir esta base de datos y
+									genera una consulta que obtenga a los 10 mejores alumnos,
+									ordenados por su promedio.</blockquote>
+								<blockquote>
+									5. Escribe las instrucciones para actualizar los archivos de
+									una aplicación web localizada en
+									<mark>/var/www/michangarrito</mark>
+									desde su proyecto localizado en /home/ubuntu/michangarrito. Los
+									archivos necesarios se encuentran en la carpeta dist dentro del
+									proyecto. Considera que estás en una terminal linux posicionado
+									en
+									<mark> ~/michangarrito</mark>
+									y necesitas hacer una copia de seguridad de
+									<mark>/var/www/michangarrito</mark> en <mark>/home/ubuntu/backups</mark> anexando la
+									fecha actual (AAAA-MM-DD) al nombre, por ejemplo
+									/home/ubuntu/backups/michangarrito_2020-02-02.
+								</blockquote>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>

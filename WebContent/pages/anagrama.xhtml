@@ -1,0 +1,40 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/template.xhtml">
+
+	<ui:define name="title">Anagrama</ui:define>
+
+	<ui:define name="content">
+		<h:form id="form">
+			<div class="p-grid">
+				<div class="p-col-12 p-md-12 p-lg-12">
+					<div class="card" style="text-align: center">
+						<h5>
+							<b>Verificador de Anagrama</b>
+						</h5>
+						<div class="ui-fluid p-formgrid p-grid">
+							<div class="p-field p-col-12 p-md-12 p-lg-6">
+								<h:outputLabel value="Texto 1" />
+								<p:inputTextarea rows="6" cols="33"
+									value="#{anagramaBean.cadena1}" />
+							</div>
+							<div class="p-field p-col-12 p-md-12 p-lg-6">
+								<h:outputLabel value="Texto 2" />
+								<p:inputTextarea rows="6" cols="33"
+									value="#{anagramaBean.cadena2}" />
+							</div>
+
+							<div class="p-field p-col-12 p-md-12 p-lg-12" align="center">
+								<p:commandButton value="Validar" style="width:120px"
+									actionListener="#{anagramaBean.analizarCadenas}" update="growl" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>

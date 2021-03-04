@@ -1,0 +1,30 @@
+.money{
+	text-align: right !important;
+	float: right;
+}
+
+.txt-center {
+	text-align: center;
+}
+
+.txt-head {
+	font-weight: bold;
+}
+
+.clienteCard {
+	display:none;
+}
+
+
+.btnOpciones {
+	float: right;
+}
+
+.inactivo {
+	color: #000 !important;
+	opacity: 0.7 !important;
+}
+
+.requerido {
+	color: red;
+}

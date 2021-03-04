@@ -1,0 +1,99 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/template.xhtml">
+
+	<ui:define name="title">Anagrama</ui:define>
+
+	<ui:define name="content">
+		<style>
+.column-style {
+	border: 1px !important;
+	background-color: white !important;
+	width: 18% !important;
+}
+
+.button-style {
+	border: 1px !important;
+	text-align: center !important;
+	vertical-align: middle !important;
+	line-height: 40px !important;
+	vertical-align: middle !important;
+}
+
+.button-link-style {
+	display: block !important;
+	text-align: center !important;
+	text-decoration: none !important;
+	background: rgb(200, 200, 200) !important;
+}
+
+.image-style {
+	height: 100px !important;
+}
+</style>
+		<h:form id="form">
+			<div class="p-grid table-demo">
+				<div class="p-col-12">
+					<div class="card" style="text-align: center">
+						<h5>
+							<b>Tic Tac Toe (Gato)</b>
+						</h5>
+						<div class="ui-fluid p-formgrid p-grid">
+							<p:dataTable id="tablero" var="gato"
+								value="#{gatoBean.listaIndices}">
+
+								<p:column styleClass="column-style">
+									<div class="button-style">
+										<p:commandLink update="tablero growl"
+											actionListener="#{gatoBean.asignarPosicion(gato.listaPosiciones.get(0))}"
+											disabled="#{gato.listaPosiciones.get(0).asignado or gatoBean.ganador}"
+											styleClass="button-link-style">
+											<p:graphicImage styleClass="image-style"
+												name="/images/#{gato.listaPosiciones.get(0).url}"
+												library="poseidon-layout" />
+										</p:commandLink>
+									</div>
+								</p:column>
+
+								<p:column styleClass="column-style">
+									<div class="button-style">
+										<p:commandLink update="tablero growl"
+											actionListener="#{gatoBean.asignarPosicion(gato.listaPosiciones.get(1))}"
+											disabled="#{gato.listaPosiciones.get(1).asignado or gatoBean.ganador}"
+											styleClass="button-link-style">
+											<p:graphicImage styleClass="image-style"
+												name="/images/#{gato.listaPosiciones.get(1).url}"
+												library="poseidon-layout" />
+										</p:commandLink>
+									</div>
+								</p:column>
+
+								<p:column styleClass="column-style">
+									<div class="button-style">
+										<p:commandLink update="tablero growl"
+											actionListener="#{gatoBean.asignarPosicion(gato.listaPosiciones.get(2))}"
+											disabled="#{gato.listaPosiciones.get(2).asignado or gatoBean.ganador}"
+											styleClass="button-link-style">
+											<p:graphicImage styleClass="image-style"
+												name="/images/#{gato.listaPosiciones.get(2).url}"
+												library="poseidon-layout" />
+										</p:commandLink>
+									</div>
+								</p:column>
+
+							</p:dataTable>
+
+							<div class="p-field p-col-12 p-md-12 p-lg-12" align="center">
+								<p:commandButton value="Reiniciar" style="width:120px"
+									actionListener="#{gatoBean.reiniciarVariables}" update="form" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>

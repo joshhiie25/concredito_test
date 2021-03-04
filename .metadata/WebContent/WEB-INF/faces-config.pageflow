@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf161484082116910" configfile="/concredito-examen/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="946" id="pf161484082476511" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf161484082476512 pf161484082476513 pf161484082476514 pf161484082476515 pf161484082476516" path="/*"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/inicio.xhtml" x="338" y="178" id="pf161484082476517" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf161484082476512" path="/pages/inicio.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/rockola.xhtml" x="338" y="562" id="pf161484082476518" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf161484082476513" path="/pages/rockola.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/gato.xhtml" x="338" y="946" id="pf161484082476519" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" inlinks="pf161484082476514" path="/pages/gato.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/anagrama.xhtml" x="338" y="1330" id="pf161484082476520" referenceLink="//@navigationRule.0/@navigationCase.3/@toViewId|" inlinks="pf161484082476515" path="/pages/anagrama.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/calificaciones.xhtml" x="338" y="1714" id="pf161484082476521" referenceLink="//@navigationRule.0/@navigationCase.4/@toViewId|" inlinks="pf161484082476516" path="/pages/calificaciones.xhtml"/>
+  <links id="pf161484082476512" target="pf161484082476517" source="pf161484082476511" outcome="inicio" redirect="true"/>
+  <links id="pf161484082476513" target="pf161484082476518" source="pf161484082476511" outcome="rockola" redirect="true"/>
+  <links id="pf161484082476514" target="pf161484082476519" source="pf161484082476511" outcome="gato" redirect="true"/>
+  <links id="pf161484082476515" target="pf161484082476520" source="pf161484082476511" outcome="anagrama" redirect="true"/>
+  <links id="pf161484082476516" target="pf161484082476521" source="pf161484082476511" outcome="calificaciones" redirect="true"/>
+</pageflow:Pageflow>

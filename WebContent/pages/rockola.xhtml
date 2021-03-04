@@ -1,0 +1,46 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/template.xhtml">
+
+	<ui:define name="title">Rockola</ui:define>
+
+	<ui:define name="content">
+		<h:form id="form">
+			<div class="p-grid">
+				<div class="p-col-12 p-md-12 p-lg-12">
+					<div class="card">
+						<h5 style="text-align: center">
+							<b>Rockola</b>
+						</h5>
+						<div class="ui-fluid p-formgrid p-grid">
+							<div class="p-field p-col-12 p-md-12 p-lg-12">
+								<p:dataTable var="cancion"
+									value="#{rockolaBean.listaReproduccion}">
+									<p:column headerText="Autor">
+										<h:outputLabel value="#{cancion.autor}" />
+									</p:column>
+									<p:column headerText="Titulo">
+										<h:outputLabel value="#{cancion.titulo}" />
+									</p:column>
+									<p:column headerText="Fecha">
+										<h:outputLabel value="#{cancion.fecha}" />
+									</p:column>
+									<p:column>
+										<audio id="reproductor" src="#{cancion.ruta}"
+											onsubmit="myFunction();" controls="controls"
+											type="audio/mpeg" preload="preload">
+										</audio>
+									</p:column>
+								</p:dataTable>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</h:form>
+	</ui:define>
+</ui:composition>
