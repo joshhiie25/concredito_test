@@ -15,32 +15,44 @@
 						<h5 style="text-align: center">
 							<b>Rockola</b>
 						</h5>
+
+						<div class="p-field p-col-12 p-md-12 p-lg-12"
+							style="text-align: center">
+							<audio id="reproductor" src="" controls="controls"
+								type="audio/mpeg" preload="none" />
+						</div>
 						<div class="ui-fluid p-formgrid p-grid">
-							<div class="p-field p-col-12 p-md-12 p-lg-12">
+							<div class="p-field p-col-12 p-md-12 p-lg-3"></div>
+							<div class="p-field p-col-12 p-md-12 p-lg-6">
 								<p:dataTable var="cancion"
-									value="#{rockolaBean.listaReproduccion}">
-									<p:column headerText="Autor">
-										<h:outputLabel value="#{cancion.autor}" />
-									</p:column>
+									value="#{rockolaBean.listaReproduccion}" scrollable="true"
+									scrollHeight="500">
 									<p:column headerText="Titulo">
 										<h:outputLabel value="#{cancion.titulo}" />
 									</p:column>
-									<p:column headerText="Fecha">
-										<h:outputLabel value="#{cancion.fecha}" />
-									</p:column>
-									<p:column>
-										<audio id="reproductor" src="#{cancion.ruta}"
-											onsubmit="myFunction();" controls="controls"
-											type="audio/mpeg" preload="preload">
-										</audio>
+									<p:column width="100">
+										<p:commandButton
+											styleClass="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only primary-button rounded-button p-mr-2 p-mb-2"
+											icon="pi pi-play"
+											onclick="return reproducirCancion('#{cancion.ruta}')">
+										</p:commandButton>
 									</p:column>
 								</p:dataTable>
 							</div>
+							<div class="p-field p-col-12 p-md-12 p-lg-3"></div>
 						</div>
 					</div>
 				</div>
 			</div>
 
+			<script language="javascript" type="text/javascript">
+				function reproducirCancion(id) {
+					var audioElement = document.getElementById('reproductor');
+					audioElement.setAttribute('src', id);
+					audioElement.pause();
+					audioElement.play();
+				}
+			</script>
 		</h:form>
 	</ui:define>
 </ui:composition>

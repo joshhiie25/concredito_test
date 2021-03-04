@@ -61,7 +61,7 @@ public class CalificacionesBean extends GenericBean implements Serializable {
 	 * Obtiene las 10 mejores calificaciones del curso
 	 */
 	public void obtenerCalificaciones() {
-		Integer idcurso = (cursoEntity == null) ? null : cursoEntity.getIdcurso();
+		Integer idcurso = (cursoEntity == null) ? 1 : cursoEntity.getIdcurso();
 		try {
 			setListaCalificaciones(calificacionService.obtenerTodos(idcurso));
 		} catch (Exception e) {

@@ -6,31 +6,22 @@
 	xmlns:sb="http://primefaces.org/poseidon">
 
 	<sb:menu widgetVar="PoseidonMenuWidget">
-	
-		<p:menuitem id="id_anagrama" 
-					value="Anagrama" 
-					icon="pi pi-search"
-					outcome="anagrama" />
-		
-		<p:menuitem id="id_rockola" 
-					value="Rockola" 
-					icon="pi pi-desktop"
-					outcome="rockola" />
 
-		<p:menuitem id="id_gato" 
-					value="Gato" 
-					icon="pi pi-desktop"
-					outcome="gato" />
-					
-		<p:menuitem id="id_calificaciones" 
-					value="Calificaciones" 
-					icon="pi pi-desktop"
-					outcome="calificaciones" />
-					
-		<p:menuitem id="id_instrucciones" 
-					value="Instrucciones" 
-					icon="pi pi-desktop"
-					outcome="instrucciones" />
+		<p:submenu label="Ejercicios" icon="pi pi-book">
+			<p:menuitem value="Ejercicio #1" icon="pi pi-pencil"
+				outcome="anagrama" />
+
+			<p:menuitem value="Ejercicio #2" icon="pi pi-play" outcome="rockola" />
+
+			<p:menuitem value="Ejercicio #3" icon="pi pi-tablet" outcome="gato" />
+
+			<p:menuitem value="Ejercicio #4" icon="pi pi-search"
+				outcome="calificaciones" />
+
+			<p:menuitem value="Ejercicio #5" icon="pi pi-comment"
+				outcome="instrucciones" />
+		</p:submenu>
+
 	</sb:menu>
 
 </ui:composition>

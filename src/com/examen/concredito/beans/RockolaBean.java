@@ -1,5 +1,6 @@
 package com.examen.concredito.beans;
 
+import java.io.File;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -32,25 +33,56 @@ public class RockolaBean extends GenericBean implements Serializable {
 	private CancionEntity cancion;
 	private boolean play;
 
+	private String SERVLET = "http://ec2-18-188-64-193.us-east-2.compute.amazonaws.com:8080/concredito-evaluacion/servlet/ServletAudio?ruta=";
+	private String CARPETA_MUSICA = "/opt/musica/";
+
 	@PostConstruct
 	public void init() {
 		setPlay(false);
 		setListaReproduccion(new ArrayList<>());
 
-		CancionEntity cancion0 = new CancionEntity();
-		cancion0.setAutor("León Larregui");
-		cancion0.setTitulo("Brillas");
-		cancion0.setRuta("../resources/musica/brillas.mp3");
-		cancion0.setFecha(SDF.format(new Date()));
-		getListaReproduccion().add(cancion0);
-		
-		CancionEntity cancion1 = new CancionEntity();
-		cancion1.setAutor("Mariya Takeuchi");
-		cancion1.setTitulo("Mariya Takeuchi 竹内 まりや Plastic Love");
-		cancion1.setRuta("../resources/musica/Plastic Love.mp3");
-		cancion1.setFecha(SDF.format(new Date()));
-		getListaReproduccion().add(cancion1);
+		File file = new File(CARPETA_MUSICA);
+		File[] listaMusica = file.listFiles();
+		for (File archivo : listaMusica) {
+			CancionEntity cancionEntity = new CancionEntity();
+			cancionEntity.setTitulo(archivo.getName());
+			cancionEntity.setRuta(obtenerRutaImagenServlet(archivo.getPath()));
+			getListaReproduccion().add(cancionEntity);
+		}
+	}
 
+	/***
+	 * 
+	 * @param url
+	 * @return
+	 */
+	public String obtenerRutaImagenServlet(String url) {
+		if (url == null) {
+			return "";
+		}
+		String rutaAudio = construirURL(url);
+		String rutaCompleta = SERVLET + rutaAudio;
+
+		return rutaCompleta;
+	}
+
+	/***
+	 * Sustituye las \\ por / en una URL
+	 * 
+	 * @param rutaImagen
+	 * @return
+	 */
+	public String construirURL(String rutaImagen) {
+		char[] arreglo = rutaImagen.toCharArray();
+		String url = "";
+		for (char letra : arreglo) {
+			if (letra == 92) {
+				url += "/";
+			} else {
+				url += letra;
+			}
+		}
+		return url;
 	}
 
 	public void reproducir(ActionEvent event) {

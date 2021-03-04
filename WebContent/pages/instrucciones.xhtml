@@ -12,10 +12,13 @@
 			<div class="p-grid table-demo">
 				<div class="p-col-12">
 					<div class="card">
+						<h5 style="text-align: center">
+							<b>Instrucciones</b>
+						</h5>
 						<div class="ui-fluid p-formgrid p-grid">
 							<div class="p-field p-col-12 p-md-12 p-lg-12"
 								style="text-align: justify;">
-								<h4>
+								<p:outputLabel>
 									<b>Escribe las instrucciones para actualizar los archivos
 										de una aplicación web localizada en <mark>/var/www/michangarrito</mark>
 										desde su proyecto localizado en /home/ubuntu/michangarrito.
@@ -28,17 +31,21 @@
 										(AAAA-MM-DD) al nombre, por ejemplo
 										/home/ubuntu/backups/michangarrito_2020-02-02.
 									</b>
-								</h4>
+								</p:outputLabel>
 								<br />
 
 							</div>
 
 							<div class="p-field p-col-12 p-md-12 p-lg-12">
-								<p><b>copia de seguridad</b></p>
+								<p:outputLabel>
+									<b>Copia de seguridad</b>
+								</p:outputLabel>
 								<blockquote>cp -r /var/www/michangarrito/
 									/home/ubuntu/backups/michangarrito_$(date +%F)</blockquote>
 
-								<p><b>ActualizaR los archivos de la aplicación</b></p>
+								<p:outputLabel>
+									<b>Actualizar los archivos de la aplicación</b>
+								</p:outputLabel>
 								<blockquote>cp -rfv
 									/home/ubuntu/michangarrito/dist/* /var/www/michangarrito/</blockquote>
 								<blockquote></blockquote>
